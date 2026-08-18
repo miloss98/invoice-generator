@@ -1,6 +1,7 @@
 import { Layout } from "./components/Layout";
 import { CompanyInfoForm } from "./components/CompanyInfoForm";
 import { ClientForm } from "./components/ClientForm";
+import { InvoiceMetaForm } from "./components/InvoiceMetaForm";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
 import type { CompanyInfo, InvoiceData, Client } from "./types/invoice";
@@ -28,10 +29,12 @@ export const App = () => {
             onChange={setCompanyInfo}
           />
           <ClientForm client={invoiceData.client} onChange={updateClient} />
+          <InvoiceMetaForm
+            invoiceData={invoiceData}
+            onChange={setInvoiceData}
+          />
           <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
-            <p className="text-sm text-ink-500">
-              More form sections coming next
-            </p>
+            <p className="text-sm text-ink-500">Line items coming next</p>
           </div>
         </>
       }
