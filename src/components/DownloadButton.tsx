@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { exportInvoiceToPDF } from "../utils/pdfExport";
+import type { CompanyInfo, InvoiceData } from "../types/invoice";
 
 interface DownloadButtonProps {
-  invoiceNumber: string;
+  companyInfo: CompanyInfo;
+  invoiceData: InvoiceData;
 }
 
-export const DownloadButton = ({ invoiceNumber }: DownloadButtonProps) => {
+export const DownloadButton = ({
+  companyInfo,
+  invoiceData,
+}: DownloadButtonProps) => {
   const [isExporting, setIsExporting] = useState(false);
 
-  const handleDownload = async () => {
+  const handleDownload = () => {
     setIsExporting(true);
     try {
-      await exportInvoiceToPDF(
-        "invoice-preview-pdf",
-        `invoice-${invoiceNumber}.pdf`,
-      );
+      exportInvoiceToPDF(companyInfo, invoiceData);
     } catch (error) {
       console.error("PDF export failed:", error);
       alert("Something went wrong exporting the PDF. Please try again.");
