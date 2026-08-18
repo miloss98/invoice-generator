@@ -4,10 +4,9 @@ import { ClientForm } from "./components/ClientForm";
 import { InvoiceMetaForm } from "./components/InvoiceMetaForm";
 import { LineItemsForm } from "./components/LineItemsForm";
 import { PaymentAndNotesForm } from "./components/PaymentAndNotesForm";
+import { InvoicePreview } from "./components/InvoicePreview";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
-import { calculateTotal } from "./utils/calculations";
-import { getCurrencySymbol } from "./utils/currencies";
 import type {
   CompanyInfo,
   InvoiceData,
@@ -32,9 +31,6 @@ export const App = () => {
   const updateItems = (items: LineItem[]) => {
     setInvoiceData({ ...invoiceData, items });
   };
-
-  const total = calculateTotal(invoiceData.items);
-  const symbol = getCurrencySymbol(invoiceData.currency);
 
   return (
     <Layout
@@ -61,13 +57,7 @@ export const App = () => {
         </>
       }
       preview={
-        <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
-          <p className="text-sm text-ink-500">Live preview coming next</p>
-          <p className="text-lg font-mono font-medium text-primary-600 mt-2">
-            {symbol}
-            {total.toFixed(2)}
-          </p>
-        </div>
+        <InvoicePreview companyInfo={companyInfo} invoiceData={invoiceData} />
       }
     />
   );
