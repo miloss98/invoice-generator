@@ -3,6 +3,7 @@ import { CompanyInfoForm } from "./components/CompanyInfoForm";
 import { ClientForm } from "./components/ClientForm";
 import { InvoiceMetaForm } from "./components/InvoiceMetaForm";
 import { LineItemsForm } from "./components/LineItemsForm";
+import { PaymentAndNotesForm } from "./components/PaymentAndNotesForm";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
 import { calculateTotal } from "./utils/calculations";
@@ -52,6 +53,10 @@ export const App = () => {
             items={invoiceData.items}
             currency={invoiceData.currency}
             onChange={updateItems}
+          />
+          <PaymentAndNotesForm
+            invoiceData={invoiceData}
+            onChange={setInvoiceData}
           />
         </>
       }
