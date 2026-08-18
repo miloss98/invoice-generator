@@ -5,6 +5,7 @@ import { InvoiceMetaForm } from "./components/InvoiceMetaForm";
 import { LineItemsForm } from "./components/LineItemsForm";
 import { PaymentAndNotesForm } from "./components/PaymentAndNotesForm";
 import { InvoicePreview } from "./components/InvoicePreview";
+import { DownloadButton } from "./components/DownloadButton";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
 import type {
@@ -57,7 +58,10 @@ export const App = () => {
         </>
       }
       preview={
-        <InvoicePreview companyInfo={companyInfo} invoiceData={invoiceData} />
+        <div className="space-y-4">
+          <InvoicePreview companyInfo={companyInfo} invoiceData={invoiceData} />
+          <DownloadButton invoiceNumber={invoiceData.invoiceNumber} />
+        </div>
       }
     />
   );
