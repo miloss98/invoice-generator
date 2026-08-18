@@ -1,4 +1,5 @@
 import { Layout } from "./components/Layout";
+import { CompanyInfoForm } from "./components/CompanyInfoForm";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
 import type { CompanyInfo, InvoiceData } from "./types/invoice";
@@ -16,11 +17,17 @@ export const App = () => {
   return (
     <Layout
       form={
-        <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
-          <p className="text-sm text-ink-500">
-            Form sections go here (next features)
-          </p>
-        </div>
+        <>
+          <CompanyInfoForm
+            companyInfo={companyInfo}
+            onChange={setCompanyInfo}
+          />
+          <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
+            <p className="text-sm text-ink-500">
+              More form sections coming next
+            </p>
+          </div>
+        </>
       }
       preview={
         <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
