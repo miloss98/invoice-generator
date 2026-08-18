@@ -1,8 +1,9 @@
 import { Layout } from "./components/Layout";
 import { CompanyInfoForm } from "./components/CompanyInfoForm";
+import { ClientForm } from "./components/ClientForm";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
-import type { CompanyInfo, InvoiceData } from "./types/invoice";
+import type { CompanyInfo, InvoiceData, Client } from "./types/invoice";
 
 export const App = () => {
   const [companyInfo, setCompanyInfo] = useLocalStorage<CompanyInfo>(
@@ -14,6 +15,10 @@ export const App = () => {
     defaultInvoiceData(),
   );
 
+  const updateClient = (client: Client) => {
+    setInvoiceData({ ...invoiceData, client });
+  };
+
   return (
     <Layout
       form={
@@ -22,6 +27,7 @@ export const App = () => {
             companyInfo={companyInfo}
             onChange={setCompanyInfo}
           />
+          <ClientForm client={invoiceData.client} onChange={updateClient} />
           <div className="rounded-card bg-white border border-ink-100 shadow-card p-4">
             <p className="text-sm text-ink-500">
               More form sections coming next
