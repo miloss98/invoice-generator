@@ -51,19 +51,6 @@ export const InvoicePreview = ({
       </div>
 
       <div className="p-8">
-        {/* Status badge */}
-        <div className="flex justify-end mb-4">
-          <span
-            className={`text-xs font-medium px-3 py-1 rounded-pill ${
-              invoiceData.status === "paid"
-                ? "bg-green-50 text-status-paid"
-                : "bg-red-50 text-status-unpaid"
-            }`}
-          >
-            {invoiceData.status === "paid" ? "Paid" : "Unpaid"}
-          </span>
-        </div>
-
         {/* Meta grid: sender / bill-to / dates */}
         <div className="grid grid-cols-3 gap-6 mb-8 text-sm">
           <div>
@@ -73,10 +60,11 @@ export const InvoicePreview = ({
             </p>
             <p className="text-ink-500">{companyInfo.address}</p>
             <p className="text-ink-500">
-              {[companyInfo.city, companyInfo.country]
+              {[companyInfo.city, companyInfo.postalCode]
                 .filter(Boolean)
-                .join(", ")}
+                .join(" ")}
             </p>
+            <p className="text-ink-500">{companyInfo.country}</p>
             {companyInfo.taxId && (
               <p className="text-ink-500 text-xs mt-1">
                 Tax ID: {companyInfo.taxId}
@@ -166,25 +154,13 @@ export const InvoicePreview = ({
           </div>
         </div>
 
-        {/* Payment details + notes */}
-        {(invoiceData.paymentDetails || invoiceData.notes) && (
-          <div className="grid grid-cols-2 gap-6 mb-8 text-xs">
-            {invoiceData.paymentDetails && (
-              <div>
-                <p className="font-medium text-ink-400 mb-1">Payment details</p>
-                <p className="text-ink-600 whitespace-pre-line">
-                  {invoiceData.paymentDetails}
-                </p>
-              </div>
-            )}
-            {invoiceData.notes && (
-              <div>
-                <p className="font-medium text-ink-400 mb-1">Notes</p>
-                <p className="text-ink-600 whitespace-pre-line">
-                  {invoiceData.notes}
-                </p>
-              </div>
-            )}
+        {/* Payment details */}
+        {invoiceData.paymentDetails && (
+          <div className="mb-8 text-xs">
+            <p className="font-medium text-ink-400 mb-1">Payment details</p>
+            <p className="text-ink-600 whitespace-pre-line">
+              {invoiceData.paymentDetails}
+            </p>
           </div>
         )}
 

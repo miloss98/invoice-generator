@@ -26,18 +26,10 @@ export const defaultCompanyInfo: CompanyInfo = {
   phone: "",
   address: "",
   city: "",
+  postalCode: "",
   country: "",
   taxId: "",
   logo: null,
-};
-
-export const nextInvoiceNumber = (current: string): string => {
-  const match = current.match(/(\d+)$/);
-  if (!match) return "INV-001";
-  const next = (parseInt(match[1], 10) + 1)
-    .toString()
-    .padStart(match[1].length, "0");
-  return current.slice(0, match.index) + next;
 };
 
 export const defaultInvoiceData = (): InvoiceData => ({
@@ -51,7 +43,5 @@ export const defaultInvoiceData = (): InvoiceData => ({
   client: emptyClient(),
   items: [emptyLineItem()],
   paymentDetails: "",
-  notes: "",
   signature: "",
-  status: "unpaid",
 });

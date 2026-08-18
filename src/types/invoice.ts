@@ -11,6 +11,7 @@ export interface CompanyInfo {
   phone: string;
   address: string;
   city: string;
+  postalCode: string;
   country: string;
   taxId: string;
   logo: string | null;
@@ -24,8 +25,6 @@ export interface Client {
   address: string;
 }
 
-export type InvoiceStatus = "unpaid" | "paid";
-
 export interface InvoiceData {
   invoiceNumber: string;
   date: string;
@@ -35,7 +34,5 @@ export interface InvoiceData {
   client: Client;
   items: LineItem[];
   paymentDetails: string;
-  notes: string;
   signature: string;
-  status: InvoiceStatus;
 }

@@ -1,15 +1,15 @@
 import type { ChangeEvent } from "react";
 import type { InvoiceData } from "../types/invoice";
 
-interface PaymentAndNotesFormProps {
+interface PaymentDetailsFormProps {
   invoiceData: InvoiceData;
   onChange: (invoiceData: InvoiceData) => void;
 }
 
-export const PaymentAndNotesForm = ({
+export const PaymentDetailsForm = ({
   invoiceData,
   onChange,
-}: PaymentAndNotesFormProps) => {
+}: PaymentDetailsFormProps) => {
   const handleChange = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
@@ -19,7 +19,9 @@ export const PaymentAndNotesForm = ({
 
   return (
     <section className="rounded-card bg-white border border-ink-100 shadow-card p-5">
-      <h2 className="text-md font-medium text-ink-900 mb-4">Payment & notes</h2>
+      <h2 className="text-md font-medium text-ink-900 mb-4">
+        Payment & signature
+      </h2>
 
       <div className="space-y-3">
         <div>
@@ -28,28 +30,10 @@ export const PaymentAndNotesForm = ({
           </label>
           <textarea
             name="paymentDetails"
-            placeholder="Bank name, IBAN / account number, PayPal email, etc."
+            placeholder="Bank name, IBAN / account number, PayPal email, thank-you note, etc."
             value={invoiceData.paymentDetails}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 rounded border border-ink-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent resize-none"
-          />
-          <p className="text-xs text-ink-400 mt-1">
-            This tells your client how to actually pay you — shown on the
-            invoice.
-          </p>
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium text-ink-500 mb-1">
-            Notes
-          </label>
-          <textarea
-            name="notes"
-            placeholder="Thank you for your business! (or any other note)"
-            value={invoiceData.notes}
-            onChange={handleChange}
-            rows={2}
             className="w-full px-3 py-2 rounded border border-ink-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent resize-none"
           />
         </div>
