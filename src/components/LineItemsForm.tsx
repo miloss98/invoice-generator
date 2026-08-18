@@ -99,7 +99,7 @@ export const LineItemsForm = ({
         <button
           type="button"
           onClick={addItem}
-          className="w-full mt-2 px-3 py-2 rounded bg-primary-50 text-primary-700 text-sm font-medium hover:bg-primary-100 transition-colors"
+          className="w-full mt-2 px-3 py-2 rounded bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors"
         >
           + Add item
         </button>

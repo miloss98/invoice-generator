@@ -23,8 +23,6 @@ export async function exportInvoiceToPDF(
   const pageWidth = pdf.internal.pageSize.getWidth();
   const pageHeight = pdf.internal.pageSize.getHeight();
 
-  // Fit the full canvas within one A4 page, preserving aspect ratio.
-  // Scale by whichever dimension is more constrained.
   const widthRatio = pageWidth / canvas.width;
   const heightRatio = pageHeight / canvas.height;
   const scale = Math.min(widthRatio, heightRatio);

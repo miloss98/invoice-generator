@@ -12,7 +12,7 @@ export const DownloadButton = ({ invoiceNumber }: DownloadButtonProps) => {
     setIsExporting(true);
     try {
       await exportInvoiceToPDF(
-        "invoice-preview",
+        "invoice-preview-pdf",
         `invoice-${invoiceNumber}.pdf`,
       );
     } catch (error) {
