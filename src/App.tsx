@@ -6,6 +6,7 @@ import { LineItemsForm } from "./components/LineItemsForm";
 import { PaymentAndNotesForm } from "./components/PaymentAndNotesForm";
 import { InvoicePreview } from "./components/InvoicePreview";
 import { DownloadButton } from "./components/DownloadButton";
+import { Toolbar } from "./components/Toolbar";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
 import type {
@@ -37,6 +38,7 @@ export const App = () => {
     <Layout
       form={
         <>
+          <Toolbar invoiceData={invoiceData} onChange={setInvoiceData} />
           <CompanyInfoForm
             companyInfo={companyInfo}
             onChange={setCompanyInfo}
