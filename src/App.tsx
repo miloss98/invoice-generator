@@ -5,7 +5,6 @@ import { InvoiceMetaForm } from "./components/InvoiceMetaForm";
 import { LineItemsForm } from "./components/LineItemsForm";
 import { PaymentDetailsForm } from "./components/PaymentsDetailsForm";
 import { InvoicePreview } from "./components/InvoicePreview";
-import { InvoicePreviewPdf } from "./components/InvoicePreviewPdf";
 import { DownloadButton } from "./components/DownloadButton";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { defaultCompanyInfo, defaultInvoiceData } from "./utils/defaults";
@@ -35,41 +34,35 @@ export const App = () => {
   };
 
   return (
-    <>
-      <Layout
-        form={
-          <>
-            <CompanyInfoForm
-              companyInfo={companyInfo}
-              onChange={setCompanyInfo}
-            />
-            <ClientForm client={invoiceData.client} onChange={updateClient} />
-            <InvoiceMetaForm
-              invoiceData={invoiceData}
-              onChange={setInvoiceData}
-            />
-            <LineItemsForm
-              items={invoiceData.items}
-              currency={invoiceData.currency}
-              onChange={updateItems}
-            />
-            <PaymentDetailsForm
-              invoiceData={invoiceData}
-              onChange={setInvoiceData}
-            />
-          </>
-        }
-        preview={
-          <div className="space-y-4">
-            <InvoicePreview
-              companyInfo={companyInfo}
-              invoiceData={invoiceData}
-            />
-            <DownloadButton invoiceNumber={invoiceData.invoiceNumber} />
-          </div>
-        }
-      />
-      <InvoicePreviewPdf companyInfo={companyInfo} invoiceData={invoiceData} />
-    </>
+    <Layout
+      form={
+        <>
+          <CompanyInfoForm
+            companyInfo={companyInfo}
+            onChange={setCompanyInfo}
+          />
+          <ClientForm client={invoiceData.client} onChange={updateClient} />
+          <InvoiceMetaForm
+            invoiceData={invoiceData}
+            onChange={setInvoiceData}
+          />
+          <LineItemsForm
+            items={invoiceData.items}
+            currency={invoiceData.currency}
+            onChange={updateItems}
+          />
+          <PaymentDetailsForm
+            invoiceData={invoiceData}
+            onChange={setInvoiceData}
+          />
+        </>
+      }
+      preview={
+        <div className="space-y-4">
+          <InvoicePreview companyInfo={companyInfo} invoiceData={invoiceData} />
+          <DownloadButton companyInfo={companyInfo} invoiceData={invoiceData} />
+        </div>
+      }
+    />
   );
 };
