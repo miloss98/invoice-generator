@@ -12,7 +12,7 @@ export const Layout = ({ form, preview }: LayoutProps) => {
       <nav className="bg-primary-400 px-4 sm:px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-white text-xl sm:text-2xl font-semibold">
+            <h1 className="text-white text-xl sm:text-2xl font-medium">
               Invoice generator
             </h1>
             <p className="text-primary-50 text-xs mt-0.5">
