@@ -69,7 +69,7 @@ export const CompanyInfoForm = ({
       </div>
 
       <div className="space-y-2">
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <input
             type="text"
             name="name"
@@ -88,7 +88,7 @@ export const CompanyInfoForm = ({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <input
             type="tel"
             name="phone"
@@ -116,7 +116,7 @@ export const CompanyInfoForm = ({
           className="w-full px-3 py-1.5 rounded border border-ink-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent"
         />
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           <input
             type="text"
             name="city"

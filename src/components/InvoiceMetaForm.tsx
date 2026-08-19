@@ -31,7 +31,7 @@ export const InvoiceMetaForm = ({
       <h2 className="text-md font-medium text-ink-900 mb-4">Invoice details</h2>
 
       <div className="space-y-3">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-medium text-ink-500 mb-1">
               Invoice number
@@ -63,7 +63,7 @@ export const InvoiceMetaForm = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-medium text-ink-500 mb-1">
               Issue date

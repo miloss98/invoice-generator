@@ -1,6 +1,7 @@
 import type { LineItem } from "../types/invoice";
 import { getCurrencySymbol } from "../utils/currencies";
 import { emptyLineItem } from "../utils/defaults";
+import type { FocusEvent } from "react";
 
 interface LineItemsFormProps {
   items: LineItem[];
@@ -15,18 +16,21 @@ export const LineItemsForm = ({
 }: LineItemsFormProps) => {
   const updateItem = (id: string, field: keyof LineItem, value: string) => {
     onChange(
-      items.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              [field]:
-                field === "description"
-                  ? value
-                  : Math.max(0, parseFloat(value) || 0),
-            }
-          : item,
-      ),
+      items.map((item) => {
+        if (item.id !== id) return item;
+
+        if (field === "description") {
+          return { ...item, description: value };
+        }
+
+        const parsed = value === "" ? 0 : Math.max(0, parseFloat(value) || 0);
+        return { ...item, [field]: parsed };
+      }),
     );
+  };
+
+  const handleNumericFocus = (e: FocusEvent<HTMLInputElement>) => {
+    e.target.select();
   };
 
   const addItem = () => {
@@ -72,16 +76,20 @@ export const LineItemsForm = ({
               type="number"
               min="0"
               step="1"
-              value={item.quantity}
+              value={item.quantity === 0 ? "" : item.quantity}
+              onFocus={handleNumericFocus}
               onChange={(e) => updateItem(item.id, "quantity", e.target.value)}
+              placeholder="0"
               className="w-full px-2 py-2 rounded border border-ink-100 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent"
             />
             <input
               type="number"
               min="0"
               step="0.01"
-              value={item.rate}
+              value={item.rate === 0 ? "" : item.rate}
+              onFocus={handleNumericFocus}
               onChange={(e) => updateItem(item.id, "rate", e.target.value)}
+              placeholder="0"
               className="w-full px-2 py-2 rounded border border-ink-100 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent"
             />
             <button
@@ -101,7 +109,7 @@ export const LineItemsForm = ({
           onClick={addItem}
           className="w-full mt-2 px-3 py-2 rounded bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors"
         >
-          + Add item
+          Add item
         </button>
       </div>
     </section>
