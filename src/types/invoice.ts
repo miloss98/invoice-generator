@@ -36,3 +36,9 @@ export interface InvoiceData {
   paymentDetails: string;
   signature: string;
 }
+
+export interface SavedLineItem {
+  id: string;
+  description: string;
+  rate: number;
+}
