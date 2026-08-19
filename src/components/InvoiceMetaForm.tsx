@@ -1,6 +1,7 @@
 import type { ChangeEvent } from "react";
 import type { InvoiceData } from "../types/invoice";
 import { currencies } from "../utils/currencies";
+import { calculateDueDate } from "../utils/dueDate";
 
 interface InvoiceMetaFormProps {
   invoiceData: InvoiceData;
@@ -23,6 +24,25 @@ export const InvoiceMetaForm = ({
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
+
+    if (name === "paymentTerms") {
+      onChange({
+        ...invoiceData,
+        paymentTerms: value,
+        dueDate: calculateDueDate(invoiceData.date, value),
+      });
+      return;
+    }
+
+    if (name === "date") {
+      onChange({
+        ...invoiceData,
+        date: value,
+        dueDate: calculateDueDate(value, invoiceData.paymentTerms),
+      });
+      return;
+    }
+
     onChange({ ...invoiceData, [name]: value });
   };
 

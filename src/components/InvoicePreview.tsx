@@ -1,6 +1,7 @@
 import type { CompanyInfo, InvoiceData } from "../types/invoice";
 import { getCurrencySymbol } from "../utils/currencies";
 import { calculateTotal } from "../utils/calculations";
+import { formatAmount } from "../utils/formatCurrency";
 
 interface InvoicePreviewProps {
   companyInfo: CompanyInfo;
@@ -132,11 +133,11 @@ export const InvoicePreview = ({
                 </td>
                 <td className="py-2.5 text-right font-mono text-ink-700">
                   {symbol}
-                  {item.rate.toFixed(2)}
+                  {formatAmount(item.rate)}
                 </td>
                 <td className="py-2.5 text-right font-mono text-ink-900">
                   {symbol}
-                  {(item.quantity * item.rate).toFixed(2)}
+                  {formatAmount(item.quantity * item.rate)}
                 </td>
               </tr>
             ))}
@@ -149,7 +150,7 @@ export const InvoicePreview = ({
             <span className="text-md font-medium text-ink-900">Total</span>
             <span className="font-mono text-lg font-medium text-primary-600">
               {symbol}
-              {total.toFixed(2)}
+              {formatAmount(total)}
             </span>
           </div>
         </div>

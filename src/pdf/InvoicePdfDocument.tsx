@@ -9,6 +9,7 @@ import {
 import type { CompanyInfo, InvoiceData } from "../types/invoice";
 import { getCurrencySymbol } from "../utils/currencies";
 import { calculateTotal } from "../utils/calculations";
+import { formatAmount } from "../utils/formatCurrency";
 
 const INK = "#1e1e1e";
 const GRAY_LABEL = "#828282";
@@ -307,11 +308,11 @@ export const InvoicePdfDocument = ({
               </Text>
               <Text style={[styles.cellText, styles.colRate]}>
                 {symbol}
-                {item.rate.toFixed(2)}
+                {formatAmount(item.rate)}
               </Text>
               <Text style={[styles.cellAmountText, styles.colAmount]}>
                 {symbol}
-                {(item.quantity * item.rate).toFixed(2)}
+                {formatAmount(item.quantity * item.rate)}
               </Text>
             </View>
           ))}
@@ -322,7 +323,7 @@ export const InvoicePdfDocument = ({
             <Text style={styles.totalLabel}>Total</Text>
             <Text style={styles.totalValue}>
               {symbol}
-              {total.toFixed(2)}
+              {formatAmount(total)}
             </Text>
           </View>
         </View>
