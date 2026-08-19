@@ -1535,6 +1535,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lucide-react@^1.32.0:
+  version "1.32.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-1.32.0.tgz#15095ac6eaff627bd7f3548d1889338ae3a2fa0e"
+  integrity sha512-txX56hMFnRxPi1f9/nH69YN8uvAO6a7Y1KSWKjCDAtdD9+soEgmWuCt6iRm1pkxUZo2+YntSdsE1L6bIuKoY8Q==
+
 media-engine@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/media-engine/-/media-engine-1.0.3.tgz#be3188f6cd243ea2a40804a35de5a5b032f58dad"

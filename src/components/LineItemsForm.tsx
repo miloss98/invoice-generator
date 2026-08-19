@@ -1,7 +1,8 @@
 import type { LineItem } from "../types/invoice";
+import type { FocusEvent } from "react";
+import { Plus } from "lucide-react";
 import { getCurrencySymbol } from "../utils/currencies";
 import { emptyLineItem } from "../utils/defaults";
-import type { FocusEvent } from "react";
 
 interface LineItemsFormProps {
   items: LineItem[];
@@ -107,8 +108,9 @@ export const LineItemsForm = ({
         <button
           type="button"
           onClick={addItem}
-          className="w-full mt-2 px-3 py-2 rounded bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors"
+          className="w-full mt-2 px-3 py-2 rounded bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors flex items-center justify-center gap-2"
         >
+          <Plus size={16} />
           Add item
         </button>
       </div>

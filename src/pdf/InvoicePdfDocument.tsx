@@ -17,7 +17,7 @@ const GRAY_LINE = "#d7d7d7";
 
 const styles = StyleSheet.create({
   page: {
-    fontFamily: "Inter",
+    fontFamily: "OpenSans",
     fontSize: 9.5,
     color: INK,
     padding: 42,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   companyName: {
-    fontFamily: "Inter",
+    fontFamily: "OpenSans",
     fontWeight: "bold",
     fontSize: 16,
     color: INK,
@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
   invoiceTitle: {
-    fontFamily: "Inter",
+    fontFamily: "OpenSans",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 17,
     color: INK,
     textAlign: "right",
   },

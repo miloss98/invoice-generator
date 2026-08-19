@@ -1,3 +1,5 @@
+import { RefreshCw } from "lucide-react";
+
 export const ResetDataButton = () => {
   const handleReset = () => {
     const confirmed = window.confirm(
@@ -12,9 +14,11 @@ export const ResetDataButton = () => {
     <button
       type="button"
       onClick={handleReset}
-      className="text-primary-50 text-xs underline hover:text-white transition-colors shrink-0"
+      aria-label="Reset data"
+      title="Reset data"
+      className="bg-white rounded p-2 hover:bg-red-100 transition-colors shrink-0 text-red-500 text-sm flex items-center gap-1"
     >
-      Reset data
+      <RefreshCw size={18} />
     </button>
   );
 };

@@ -23,17 +23,17 @@ async function fetchAsDataUri(url: string, mimeType: string): Promise<string> {
 export async function registerPdfFonts(): Promise<void> {
   if (registered) return;
 
-  const [interRegular, interBold, caveat] = await Promise.all([
+  const [openSansRegular, openSansBold, caveat] = await Promise.all([
     fetchAsDataUri("/fonts/OpenSans-Regular.ttf", "font/ttf"),
     fetchAsDataUri("/fonts/OpenSans-Bold.ttf", "font/ttf"),
     fetchAsDataUri("/fonts/Caveat-Medium.ttf", "font/ttf"),
   ]);
 
   Font.register({
-    family: "Inter",
+    family: "OpenSans",
     fonts: [
-      { src: interRegular, fontWeight: "normal" },
-      { src: interBold, fontWeight: "bold" },
+      { src: openSansRegular, fontWeight: "normal" },
+      { src: openSansBold, fontWeight: "bold" },
     ],
   });
 

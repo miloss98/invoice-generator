@@ -20,7 +20,7 @@ export const InvoicePreview = ({
       className="bg-white rounded-card border border-ink-100 shadow-card overflow-hidden"
     >
       {/* Header band */}
-      <div className="bg-primary-400 px-8 py-6 flex items-start justify-between">
+      <div className="bg-primary-400 px-8 py-4 flex items-start justify-between">
         <div className="flex items-center gap-3">
           {companyInfo.logo && (
             <img
@@ -41,7 +41,7 @@ export const InvoicePreview = ({
           </div>
         </div>
         <div className="text-right">
-          <p className="text-white text-2xl font-medium tracking-wide">
+          <p className="text-white text-xl font-medium tracking-wide">
             INVOICE
           </p>
           <p className="text-primary-50 text-xs font-mono mt-1">
