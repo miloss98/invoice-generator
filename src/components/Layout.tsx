@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ResetDataButton } from "./ResetDataButton";
+import { DataBackupButtons } from "./DataBackupButtons";
 
 interface LayoutProps {
   form: ReactNode;
@@ -19,7 +20,10 @@ export const Layout = ({ form, preview }: LayoutProps) => {
               Create and manage your invoices
             </p>
           </div>
-          <ResetDataButton />
+          <div className="flex items-center gap-1">
+            <DataBackupButtons />
+            <ResetDataButton />
+          </div>
         </div>
       </nav>
 
