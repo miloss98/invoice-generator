@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import type { CompanyInfo } from "../types/invoice";
+import { Trash2 } from "lucide-react";
 
 interface CompanyInfoFormProps {
   companyInfo: CompanyInfo;
@@ -50,9 +51,9 @@ export const CompanyInfoForm = ({
             <button
               type="button"
               onClick={removeLogo}
-              className="text-xs text-status-unpaid hover:underline"
+              className="text-xs hover:bg-gray-100 rounded-sm p-2 bg-white text-red-500"
             >
-              Remove
+              <Trash2 size={14} />
             </button>
           </div>
         ) : (

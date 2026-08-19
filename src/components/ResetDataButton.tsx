@@ -16,9 +16,10 @@ export const ResetDataButton = () => {
       onClick={handleReset}
       aria-label="Reset data"
       title="Reset data"
-      className="bg-white rounded p-2 hover:bg-red-100 transition-colors shrink-0 text-red-500 text-sm flex items-center gap-1"
+      className="text-base bg-white rounded p-2 hover:bg-red-100 transition-colors shrink-0 text-red-500 flex items-center gap-2"
     >
-      <RefreshCw size={18} />
+      <span className="hidden md:flex"> Reset </span>
+      <RefreshCw size={14} />
     </button>
   );
 };

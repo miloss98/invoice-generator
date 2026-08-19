@@ -39,15 +39,16 @@ export const DataBackupButtons = () => {
   };
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex  items-center gap-2">
       <button
         type="button"
         onClick={exportBackup}
         aria-label="Export data backup"
         title="Export data backup"
-        className="text-primary-50 hover:text-white hover:bg-white/10 rounded p-2 transition-colors"
+        className="text-base  bg-white hover:bg-white/70 rounded p-2 text-green-700 transition-colors disabled:opacity-50 flex items-center gap-2"
       >
-        <Download size={18} />
+        <span className="hidden md:flex"> Export </span>
+        <Download size={14} />
       </button>
 
       <button
@@ -56,9 +57,10 @@ export const DataBackupButtons = () => {
         disabled={isImporting}
         aria-label="Import data backup"
         title="Import data backup"
-        className="text-primary-50 hover:text-white hover:bg-white/10 rounded p-2 transition-colors disabled:opacity-50"
+        className="text-base bg-white hover:bg-white/70 rounded p-2 text-blue-700 transition-colors disabled:opacity-50 flex items-center gap-2"
       >
-        <Upload size={18} />
+        <span className="hidden md:flex"> Import </span>
+        <Upload size={14} />
       </button>
 
       <input

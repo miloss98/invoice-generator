@@ -20,7 +20,7 @@ export const Layout = ({ form, preview }: LayoutProps) => {
               Create and manage your invoices
             </p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
             <DataBackupButtons />
             <ResetDataButton />
           </div>
